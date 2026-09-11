@@ -1,0 +1,1 @@
+"""Visualização em matplotlib do grafo da rede e do histórico de treino."""
