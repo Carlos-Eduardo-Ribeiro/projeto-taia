@@ -5,9 +5,10 @@ __pycache__/
 .venv/
 *.ipynb_checkpoints/
 .ipynb_checkpoints/
+*.md
 
-# Dados processados (gerados)
-data/processed/
+# Dados processados (gerados) — em qualquer projeto
+**/data/processed/
 
 # Sistema
 .DS_Store
@@ -18,3 +19,6 @@ Thumbs.db
 
 # Skills de agente instaladas pelo Streamlit
 .agents/
+data/raw/
+projeto_2/data/raw/
+projeto_1/data/raw/
