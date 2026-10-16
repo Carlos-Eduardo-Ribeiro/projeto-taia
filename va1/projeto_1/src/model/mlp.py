@@ -10,7 +10,7 @@ from __future__ import annotations
 
 import numpy as np
 
-from src.model.activations import get_activation
+from projetos.projeto_1.src.model.activations import get_activation
 
 
 def _inicializa_pesos(fan_in: int, fan_out: int, ativacao: str, seed: int) -> tuple[np.ndarray, np.ndarray]:
@@ -69,15 +69,15 @@ class MLP:
     def _aplicar_ativacao(self, l: int, z: np.ndarray) -> np.ndarray:
         nome = self.activations[l]
         if self.activations[l] == "sigmoid":
-            from src.model.activations import sigmoid
+            from projetos.projeto_1.src.model.activations import sigmoid
 
             return sigmoid(z)
         if nome == "tanh":
-            from src.model.activations import tanh
+            from projetos.projeto_1.src.model.activations import tanh
 
             return tanh(z)
         if nome == "relu":
-            from src.model.activations import relu
+            from projetos.projeto_1.src.model.activations import relu
 
             return relu(z)
         return z  # softmax tratada apenas na saída
@@ -97,7 +97,7 @@ class MLP:
             z = a @ self.W[l].T + self.b[l]
             self.cache_z.append(z)
             if l == len(self.W) - 1 and self.activations[l] == "softmax":
-                from src.model.activations import softmax
+                from projetos.projeto_1.src.model.activations import softmax
 
                 a = softmax(z)
             else:
@@ -143,14 +143,14 @@ class MLP:
     def _derivada_ativacao(self, l: int, a: np.ndarray) -> np.ndarray:
         nome = self.activations[l]
         if nome == "sigmoid":
-            from src.model.activations import sigmoid_derivative
+            from projetos.projeto_1.src.model.activations import sigmoid_derivative
 
             return sigmoid_derivative(a)
         if nome == "tanh":
-            from src.model.activations import tanh_derivative
+            from projetos.projeto_1.src.model.activations import tanh_derivative
 
             return tanh_derivative(a)
-        from src.model.activations import relu_derivative
+        from projetos.projeto_1.src.model.activations import relu_derivative
 
         return relu_derivative(a)
 

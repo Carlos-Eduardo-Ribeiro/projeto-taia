@@ -16,18 +16,18 @@ if str(PROJETO) not in sys.path:
 import numpy as np  # noqa: E402
 import pandas as pd  # noqa: E402
 
-from src.config import RANDOM_STATE  # noqa: E402
-from src.data.load_data import load_diabetic, load_heart, load_ids_mapping  # noqa: E402
-from src.data.preprocess import (  # noqa: E402
+from projetos.projeto_1.src.config import RANDOM_STATE  # noqa: E402
+from projetos.projeto_1.src.data.load_data import load_diabetic, load_heart, load_ids_mapping  # noqa: E402
+from projetos.projeto_1.src.data.preprocess import (  # noqa: E402
     PreprocessDiabetic,
     StandardScaler,
     clip_outliers,
     preprocess_heart,
     split_train_test,
 )
-from src.model.mlp import MLP  # noqa: E402
-from src.model.trainer import Trainer  # noqa: E402
-from src.viz.graph_plot import plot_history, plot_network  # noqa: E402
+from projetos.projeto_1.src.model.mlp import MLP  # noqa: E402
+from projetos.projeto_1.src.model.trainer import Trainer  # noqa: E402
+from projetos.projeto_1.src.viz.graph_plot import plot_history, plot_network  # noqa: E402
 
 st.set_page_config(page_title="MLP do Zero — AI4Good", layout="wide")
 

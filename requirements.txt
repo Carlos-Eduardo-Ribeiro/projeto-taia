@@ -4,3 +4,10 @@ matplotlib==3.11.1
 streamlit==1.63.0
 ipykernel>=7.0
 jupyter>=1.1
+
+# Projeto 2 (AE/Toll) — instaladas no .venv global
+# torch CPU: usar `pip install torch --index-url https://download.pytorch.org/whl/cpu`
+torch==2.14.0+cpu
+scipy==1.18.1
+scikit-learn==1.9.1
+idx2numpy==1.2.3
