@@ -8,7 +8,7 @@ parte de treino e aplicada também no teste, para não haver vazamento de dados.
 import numpy as np
 import pandas as pd
 
-from src.config import RANDOM_STATE, TEST_SIZE
+from projetos.projeto_1.src.config import RANDOM_STATE, TEST_SIZE
 
 # --------------------------------------------------------------------------- #
 # Split 80/20

@@ -7,9 +7,9 @@ import torch.optim as optim
 from sklearn.metrics import precision_score, recall_score, f1_score, roc_auc_score, accuracy_score
 import matplotlib.pyplot as plt
 
-from dataset import get_data
-from modelo_original.autoencoder import SimpleAutoencoder
-from modelo_modificado.autoencoder import ModifiedAutoencoder
+from projetos.projeto_2.src.dataset import get_data
+from projetos.projeto_2.src.modelo_original.autoencoder import SimpleAutoencoder
+from projetos.projeto_2.src.modelo_modificado.autoencoder import ModifiedAutoencoder
 
 def train_and_evaluate(model_type, epochs=20, batch_size=256, lr=1e-3):
     print(f"--- Iniciando experimento com o modelo: {model_type} ---")

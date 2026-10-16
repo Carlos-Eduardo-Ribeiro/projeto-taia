@@ -8,8 +8,8 @@ from __future__ import annotations
 
 import numpy as np
 
-from src.config import RANDOM_STATE
-from src.model.activations import (
+from projetos.projeto_1.src.config import RANDOM_STATE
+from projetos.projeto_1.src.model.activations import (
     accuracy_binary,
     accuracy_multiclass,
     binary_cross_entropy,

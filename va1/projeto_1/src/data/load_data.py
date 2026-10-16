@@ -9,7 +9,7 @@ from pathlib import Path
 
 import pandas as pd
 
-from src.config import HEART_PATH, IDS_MAPPING_PATH, DIABETIC_PATH
+from projetos.projeto_1.src.config import HEART_PATH, IDS_MAPPING_PATH, DIABETIC_PATH
 
 
 def load_heart(path: Path | str = HEART_PATH) -> pd.DataFrame:

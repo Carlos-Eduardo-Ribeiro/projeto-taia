@@ -1,4 +1,12 @@
-# Contexto do Projeto: Rede Neural MLP do Zero com Interface Streamlit
+# Contexto do Projeto 1: Rede Neural MLP do Zero com Interface Streamlit
+
+> Este documento descreve o **Projeto 1** do workspace multi-projeto (ver
+> `README.md`). Todo o código e os dados deste contexto vivem em `projeto_1/`.
+> Comandos de execução devem ser rodados a partir de `projeto_1/`
+> (ex.: `../.venv/bin/streamlit run app/streamlit_app.py`).
+>
+> **Estrutura**: `projeto_1/app` (Streamlit), `projeto_1/notebooks`,
+> `projeto_1/data/{raw,processed}`, `projeto_1/scripts`, `projeto_1/src`.
 
 ## 1. Objetivo Principal
 O objetivo deste projeto é construir uma Rede Neural do tipo **MLP (Multi-Layer Perceptron) puramente em Python (do zero / *from scratch*)**, sem o uso de bibliotecas prontas de Deep Learning (como TensorFlow ou PyTorch) para a estrutura do modelo [cite: 1]. 
