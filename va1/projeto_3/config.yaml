@@ -1,0 +1,23 @@
+# Configuração e Especificação dos Agentes
+agentes:
+  moderador:
+    id: "aegis"
+    temperatura: 0.3 # Baixa para focar em precisão e moderação
+    contexto: 16000
+    ferramentas_ativadas: ["google_search"] # Capacidade de busca (Checklist Item 4)
+    prompt_file: "prompts/moderador.md"
+
+  utopico:
+    id: "aurora"
+    temperatura: 0.8 # Alta para criatividade, soluções fora da caixa e conjecturas utópicas
+    contexto: 32000
+    ferramentas_ativadas: []
+    prompt_file: "prompts/utopico.md"
+
+  distopico:
+    id: "orion"
+    temperatura: 0.2 # Baixa para raciocínio lógico implacável
+    contexto: 32000
+    ferramentas_ativadas: []
+    raciocinio_ativado: true # Capacidade de raciocínio (Checklist Item 5 - Thinking Models)
+    prompt_file: "prompts/distopico.md"
