@@ -17,17 +17,17 @@ por que esta crise: Porque as pessoas estão delegando o processo inteiro à IA 
 
 | | tecnologia de IA |
 |:-:|:--|
-| [x] A | outra: Sistemas Multiagente com Papéis (Auditor/Cético) |
-| [x] B | outra: Redes Neurais / Modelos Autoencoders |
-| [x] C | outra: Análise de Trajetória / Aprendizado por Reforço |
+| [x] A | modelos locais / no aparelho (*SLMs*, 1B–7B) (Qwen2.5-Coder via llama.cpp) |
+| [x] B | voz (fala ↔ texto) e interfaces sem tela (Whisper Local) |
+| [x] C | sistemas multiagente e agência (Orquestração de Git/AST) |
 
 **infraestruturas tradicionais** (marque 3 e chame de 1, 2, 3):
 
 | | infraestrutura |
 |:-:|:--|
-| [x] 1 | outra: Infraestrutura de Testes Automatizados (CI/CD) |
-| [x] 2 | outra: Controle de Versão (Git / Histórico de Commits) |
-| [x] 3 | outra: Plataformas de Code Review/Peer Review Assíncrono |
+| [x] 1 | outra: Infraestrutura de Testes e Compilação (IDE/VS Code) |
+| [x] 2 | outra: Controle de Versão (Git / Histórico de Diffs) |
+| [x] 3 | outra: Code/Peer Review (Avaliação Semântica) |
 
 ## 2 · clichês
 
@@ -35,75 +35,75 @@ por que esta crise: Porque as pessoas estão delegando o processo inteiro à IA 
 |:--|:--|:--|
 | **1. Tutor chatbot que "não dá a resposta"** | Tenta forçar o usuário a pensar guiando-o com o método socrático. | É facilmente "vencido" pelo usuário com prompts como "ignore as regras", falhando na restrição. |
 | **2. Plugin bloqueador de copiar e colar** | Impede que o usuário jogue a resposta direto no projeto. | Foca na ação motora (digitar) e não no raciocínio; o usuário apenas transcreve sem entender. |
-| **3. Detector de IA (Anti-Cheat / Turnitin)** | Inibe entregas 100% geradas por IA pelo medo da punição. | Transforma a educação em jogo de polícia e ladrão; o foco vira "mascarar o texto" em vez de aprender. |
+| **3. Detector de IA (Anti-Cheat / Turnitin)** | Inibe entregas 100% geradas por IA pelo medo da punição. | Transforma a educação em jogo de polícia e ladrão; o foco vira "mascarar o texto" em vez de provar autoria cognitiva. |
 | **4. Quiz de múltipla escolha no final da tarefa** | Estabelece um ponto de checagem do conteúdo gerado. | São genéricos. Não avaliam se o usuário sabe consertar ou adaptar a lógica na arquitetura real. |
-| **5. Dashboard de limite de IA diário** | Restringe a quantidade de chamadas, obrigando a racionar. | Quantidade não é qualidade. O usuário pode gastar a cota pedindo a solução inteira de uma vez. |
+| **5. Dashboard de limite de IA diário** | Restringe a quantidade de chamadas, obrigando a racionar. | Quantidade não é qualidade. O aluno pode gastar a cota pedindo a solução inteira de uma vez. |
 
 ## 3 · matriz 3 × 3 e a minha ideia
 
 cada célula: **nome** · frase de até 20 palavras (quem usa, o que faz).
 
-| | 1 · Infra de CI/CD | 2 · Controle de Versão (Git) | 3 · Code/Peer Review |
+| | 1 · IDE / VS Code | 2 · Histórico Git (Diffs) | 3 · Avaliação (Review) |
 |:--|:--|:--|:--|
-| **A · Multiagente** | **CI Cético** · a esteira CI usa agente para injetar falha; o dev explica a quebra. | **Commit Entrevistado** · agente audita grande mudança e exige justificativa de linha específica. | **Reviewer Infiltrado** · agente esconde erro sutil no review para testar aprovação automática. |
-| **B · Autoencoders** | **Filtro de Anomalia** · build falha se a estrutura de código for idêntica à média global (slop puro). | **Assinatura de Código** · Git treina modelo de estilo; commits destonantes exigem explicação. | **Mapa de Originalidade** · review exibe mapa de calor destacando blocos gerados por IA para discussão. |
-| **C · RL / Trajetória** | **Esteira Progressiva** · CI mede intervenção humana e ajusta complexidade de testes futuros. | **Jornada Recompensada** · Git acompanha histórico premiando refatorações iterativas sobre copiar/colar. | **Match de Complexidade** · pareia aluno obrigatoriamente para revisar lógicas que exigem profundidade. |
+| **A · Modelos Locais (SLM)** | **IDE Investigativa** · modelo local avalia AST do código e questiona decisões complexas. | **Commit Explicado** · modelo avalia o diff do commit local e exige justificativa em texto. | **Rubrica Automática** · SLM avalia qualidade do código baseado nos padrões do laboratório. |
+| **B · Voz (Whisper)** | **Ctrl+V Falado** · ao colar código genérico, IDE obriga aluno a explicar a lógica por voz. | **Push por Voz** · para autorizar envio ao Git, aluno explica alteração em áudio transcrito. | **Review em Áudio** · professor escuta resumo transcrito das decisões arquiteturais do aluno. |
+| **C · Orquestração** | **Agente AST** · lê a árvore estrutural do código para isolar apenas o que mudou. | **Filtro de Diffs** · cruza histórico Git com AST para não questionar arquivos de configuração. | **Relatório Consolidado** · gera métricas de evolução e dependência de IA com base nas respostas. |
 
 **as 9 no mapa impacto × viabilidade:**
 
 | | viabilidade alta | viabilidade baixa |
 |:--|:--|:--|
-| **impacto alto** | **Commit Entrevistado**<br>**Filtro de Anomalia** | **Assinatura de Código**<br>**Jornada Recompensada** |
-| **impacto baixo** | **Mapa de Originalidade**<br>**Reviewer Infiltrado** | **CI Cético**<br>**Esteira Progressiva**<br>**Match de Complexidade** |
+| **impacto alto** | **Ctrl+V Falado**<br>**Agente AST** | **Push por Voz**<br>**Relatório Consolidado** |
+| **impacto baixo** | **IDE Investigativa**<br>**Filtro de Diffs** | **Commit Explicado**<br>**Rubrica Automática**<br>**Review em Áudio** |
 
-onde discordei da IA, e por quê: Concordei com a IA, pois o mapeamento de impacto e viabilidade se alinhou à minha visão de focar no entendimento do código sem complexidade desnecessária.
+onde discordei da IA, e por quê: Concordei com o mapeamento, mas notei que a viabilidade de ferramentas puramente de voz ou puramente locais só se torna alta se a arquitetura for adaptável ao PC do usuário.
 
-**minha ideia escolhida:** **Commit Entrevistado** · Antes de aceitar um push gigante, um agente audita a mudança e exige que o aluno justifique uma linha específica.
+**minha ideia escolhida:** **Ctrl+V Falado (Extensão VS Code)** · Extensão lê diffs e AST, pausando para o aluno explicar decisões arquiteturais complexas por áudio.
 
 **por que ela, sem IA, em até 3 linhas:** 
-Escolhi pois é compreensível e obriga o profissional/estudante a ter noção do código sem apenas colar às cegas. Isso liga a parte consciente do cérebro, forçando-o a pensar, o que reduz erros e melhora absurdamente o aprendizado e a produção.
+Escolhi pois abandona o foco policial de "caçar IA" e foca na comprovação cognitiva. Ao integrar isso direto no VS Code, o aluno consolida os fundamentos da programação de forma dinâmica, em casa ou na faculdade, reduzindo a dependência e melhorando a qualidade do código.
 
 ## 4 · motores
 
 | motor | nome | frase | o que mudou em relação à ideia |
 |:--|:--|:--|:--|
-| inverter | **Agente Sabotador** | o agente faz o commit; o aluno atua como auditor e precisa encontrar a falha proposital antes de aprovar. | inverte o papel: o aluno investiga e acha o erro no código da IA, em vez de explicar o próprio. |
-| canalizar | **Documentação Involuntária** | a explicação que o dev dá para passar o commit vira a documentação oficial daquele código. | a obrigação chata de passar no teste é canalizada para gerar documentação útil para toda a equipe. |
-| transplantar | **Captcha Cognitivo** | como um Captcha, antes do push a IDE apaga partes vitais da lógica e o aluno as preenche de memória. | transplanta a mecânica de segurança contra bots para provar que o humano entende a lógica. |
-| reescalar | **Ctrl+V Entrevistado** | em vez do grande push final, o agente pausa e entrevista o aluno a cada bloco colado na IDE. | auditoria reescalada 100x para baixo: sai do Git e vai para a edição (colar texto). |
-| trocar a persona | **Commit Entrevistado no RH** | recrutadores usam a ferramenta para que candidatos justifiquem linhas do desafio antes da contratação. | usuário deixa de ser estudante e passa a ser candidato a vaga de TI. |
-| trocar o contexto | **Parágrafo Entrevistado** | a ferramenta audita TCCs no Google Docs, questionando parágrafos gerados por IA. | contexto sai do código para o mundo da redação acadêmica. |
-| trocar a tecnologia | **Push por Voz** | Git bloqueia teclado; o aluno aprova o commit se gravar um áudio de 15s explicando a lógica. | troca texto por voz, obrigando a verbalizar a cognição sem copiar a explicação. |
-| juntar | **Commit Anômalo Entrevistado** | o agente só exige justificativa das linhas exatas que o Autoencoder flagrou como slop genérico. | junta agente e filtro de anomalia, auditando só o que tem "cheiro" de alienação. |
-| restringir | **Batalha contra o Relógio** | o aluno tem apenas 20 segundos para justificar a linha, senão o commit é rejeitado. | restrição de tempo severa: impede que o aluno vá pesquisar a resposta na hora. |
+| inverter | **Agente Sabotador** | a extensão injeta erro no código; o aluno usa a AST para achar e explicar o problema. | aluno acha erro gerado pela IA em vez de explicar o próprio código. |
+| canalizar | **Documentação Involuntária** | a explicação por voz vira documentação rica no Git e material de estudo. | obrigação de falar canalizada para gerar bem coletivo (docs). |
+| transplantar | **Captcha Cognitivo** | como um Captcha, apaga lógicas vitais que o aluno deve reescrever e explicar. | transplanta segurança anti-bot para prova de aprendizado. |
+| reescalar | **Rastro Microscópico** | pausa e avalia linha a linha digitada, em vez de avaliar o bloco todo. | auditoria excessivamente granular e intrusiva. |
+| trocar a persona | **Extensão de RH** | recrutadores usam o plugin para avaliar candidatos em testes práticos. | foco sai do aluno/professor para o mercado de contratação. |
+| trocar o contexto | **Redação Cognitiva** | avalia TCCs em editores de texto usando a mesma lógica estrutural. | contexto sai da programação e vai para a escrita acadêmica. |
+| trocar a tecnologia | **Verificação em Nuvem** | força todo o processamento para APIs externas em vez de usar SLM local. | troca a infraestrutura local (privada) por nuvem (custosa). |
+| juntar | **AST Falada** | cruza a leitura da árvore estrutural (AST) com o Whisper para questionamento cirúrgico. | mistura detecção inteligente com input humanizado por voz. |
+| restringir | **Avaliação Sem Tela** | VS Code trava a tela visual; aluno deve justificar lógica guiado apenas por áudio. | restringe uso visual, forçando lembrança total da arquitetura. |
 
 ## 5 · o que fica e o que sai
 
-**o que eu gostei:** Gostei de "Documentação Involuntária", "Ctrl+V Entrevistado", "Commit Entrevistado no RH" e "Commit Anômalo Entrevistado".
+**o que eu gostei:** Gostei da junção de ler a AST (para isolar alterações vitais) e usar a explicação por voz. É brilhante a ideia de canalizar essa validação para a geração de relatórios e documentação do aluno.
 
-**o que achei interessante:** Achei "Push por Voz" fantástica, pois junta a fala com a cognição e aumenta a retenção do aprendizado. Obriga a verbalizar a lógica sem "copiar e colar" a explicação.
+**o que achei interessante:** A noção de que a ferramenta deve avaliar não se a IA fez o código, mas se o aluno compreende o que está ali, usando uma rubrica avaliativa padronizada. 
 
-**o que eu descarto, e por quê:** Descarto o restante, pois seguem uma vertente de mais atrapalhar do que ajudar. A ferramenta no ambiente acadêmico precisa combinar estudo e prática de forma fluida.
+**o que eu descarto, e por quê:** Descarto restrições punitivas (batalhas contra o relógio ou travar a tela). O foco precisa ser educacional e adaptável, rodando de forma soberana (localmente) e funcionando bem tanto nos laboratórios da faculdade quanto nos estudos da madrugada em casa.
 
-**minha ideia completa:** **Extensão Rastro Cognitivo (VS Code)**
-Estudantes de programação usam uma extensão nativa no VS Code. Quando colam códigos sinalizados por Autoencoder como "100% IA genérica", a IDE exige que gravem um áudio explicando a arquitetura e segurança do bloco na hora (ou faz um apanhado). O áudio é transcrito (Transformers), e a extensão gera um relatório periódico de desempenho. O professor recebe um dashboard com a turma consolidada, e o aluno visualiza suas métricas de originalidade, dependência de IA e fluidez na compreensão lógica.
+**minha ideia completa:** **Rastro Cognitivo (Edge AI Edition)**
+Uma extensão do VS Code 100% local. Ela instala, faz profiling de hardware (CPU/RAM/GPU) e baixa o Qwen2.5-Coder (GGUF/llama.cpp) e o Whisper. Se o PC for fraco, prioriza o local com um modelo menor; se não der, libera uso de API Key na nuvem. A extensão lê diffs do Git e a AST, detectando mudanças estruturais e exigindo que o aluno justifique a arquitetura em áudio. O Qwen usa uma rubrica semântica para avaliar a compreensão (sem "caçar" IA). O aluno ganha um relatório de evolução de sua base técnica, e o professor recebe um dashboard consolidado das lacunas da turma.
 
 ## 6 · refinamento
 
-**a · e se todo mundo usasse?** Em 5 anos, formaríamos programadores mais capazes, que dominam os fundamentos e sabem interpretar o que a IA gera (a fase mais vital na entrada em TI). O uso massivo ocorreria pelo incentivo egoísta: o aluno quer ser um dev de destaque, quer saber onde erra para melhorar e almeja receber conteúdos personalizados do professor para solidificar a própria base.
+**a · e se todo mundo usasse?** Em 5 anos, formaríamos programadores com base sólida, capazes de ler, auditar e orquestrar código gerado por IA com maestria, porque foram forçados a interpretar a lógica ao longo de todo o curso. Estudantes (na faculdade e em casa) usariam a extensão ativamente pelo desejo egoísta de descobrir exatamente onde estão falhando nos fundamentos, mapear sua evolução técnica em métricas claras e conseguir trilhas de estudo personalizadas baseadas em seus relatórios.
 
-**b · a IA que não pode faltar.** técnica: Autocodificadores (detecção de anomalia) e Transformers (Voz ↔ Texto) · aula da disciplina: 07 - arquiteturas de deep learning (autocodificadores) e 11 - arquiteturas de deep learning (transformers).
+**b · a IA que não pode faltar.** técnica: Modelos Locais (*SLMs* quantizados, ex: Qwen2.5-Coder) e Transformers de Voz (*Whisper*). · aula da disciplina: 07 - modelos locais / SLMs e 11 - transformers.
 
-por que sem ela não roda: Sem autocodificadores, a IDE pausaria em todo trecho (irritando o aluno). Sem transformers, o preenchimento de formulários mataria o fluxo ágil. E sem a IA para consolidar os relatórios e analisar a fluidez dos áudios, o professor não conseguiria monitorar as lacunas lógicas individuais em turmas gigantes.
+por que sem ela não roda: Sem SLMs locais executando llama.cpp, a extensão dependeria de servidores caros, ferindo a privacidade do aluno e inviabilizando uso sem internet ou em universidades sem verba. O Qwen-Coder é vital para ler o contexto do Git/AST e aplicar a rubrica inteligentemente. O Whisper garante o fluxo por fala; sem ele, a exigência de digitar justificativas longas transformaria a extensão numa burocracia insustentável.
 
 **c · o cético e as saídas**
 
 | crítica | saída 1 | saída 2 | minha decisão |
 |:--|:--|:--|:--|
-| O aluno pode gerar a explicação no ChatGPT no celular e apenas ler para a extensão. | Adicionar limite de tempo de 10 segundos para iniciar a fala. | Analisar não a perfeição, mas a fluidez, sinalizando áudios robóticos ou sem hesitações naturais. | Escolho a saída 2. A análise de fluidez penaliza a leitura fria sem forçar uma corrida contra o tempo desnecessária. |
-| O professor ficará sobrecarregado tendo que ouvir dezenas de relatórios individuais por semana. | O relatório usa IA para gerar um dashboard consolidado da turma, destacando os 5 com maior risco de alienação. | O relatório vai só para o aluno, que anexa na entrega final como prova de autoria. | Escolho a saída 1. A triagem foca o esforço docente onde é necessário, prevenindo o abandono da ferramenta pelos professores. |
-| O Autocodificador pode sinalizar configurações simples ou boilerplates. | Treinar o modelo para ignorar arquivos de configuração (JSON, YAML). | Apoiar-se no Tech Lead/Professor para aprovar padrões da disciplina. | Escolho a saída 1. Ignorar arquivos de configuração poupa tempo e foca a auditoria exclusivamente na base lógica. |
+| PCs de alunos (em casa/laboratório) não aguentam rodar Docker, IDE, Qwen e Whisper simultaneamente sem travar. | Forçar todo o processamento para a nuvem da universidade via API. | Fazer profiling adaptativo: manter local com modelo menor se o PC for fraco, ou liberar API Key do usuário em último caso. | Escolho a saída 2. A degradação suave garante que a prioridade seja sempre o processamento local (Edge AI), sacrificando desempenho sutil do LLM em PCs fracos antes de apelar para a nuvem. |
+| O Whisper pode transcrever jargões técnicos errado ("array" como "rei"), frustrando a rubrica de avaliação. | Injetar o dicionário de variáveis da AST no prompt do Whisper. | Instruir o Qwen via prompt a focar na intenção lógica da resposta, perdoando erros fonéticos óbvios. | Escolho a saída 2 apoiada pela saída 1. Ao injetar a AST no Whisper e instruir a tolerância na rubrica do Qwen, anulamos a frustração por falso-negativo semântico. |
+| O aluno pode gerar a explicação num celular com ChatGPT e ler feito um robô. | Adicionar cronômetro punitivo (10s) para responder. | O LLM analisa a fluidez, sinalizando falas robóticas e sem hesitações naturais. | Escolho a saída 2. Avaliar fluidez foca a análise em cognição real e evita punições de tempo que prejudicariam alunos mais reflexivos. |
 
 ## 7 · resumo, sem IA
 
-Ataco a crise da robotização do pensamento, onde o estudante delega o aprendizado e vira um "colador" dependente. A solução é a Extensão Rastro Cognitivo para VS Code, que audita o código gerado por IA e exige que o aluno justifique a lógica por áudio. Transformers e Autocodificadores avaliam o "slop" e a fluidez, gerando dashboards de desempenho para o professor e métricas de desenvolvimento para o estudante. Em escala, garantiríamos programadores com base sólida, e os alunos a utilizariam pelo forte interesse individual de saber onde erram, evoluir na carreira e obter mentoria personalizada.
+Ataco a crise da robotização do pensamento, onde o estudante delega o raciocínio e enfraquece seus fundamentos técnicos. A solução é a extensão "Rastro Cognitivo" (VS Code), que usa leitura de AST e Git para acionar perguntas estruturais sobre o código em áudio. Rodando via Edge AI (Qwen-Coder e Whisper locais com adaptação inteligente de hardware), avalia a autoria cognitiva e a compreensão. O incentivo egoísta de uso, em casa ou no lab, seria o mapeamento detalhado da própria evolução e a identificação de lacunas, formando devs conscientes e competitivos para o futuro.
