@@ -19,30 +19,38 @@ técnica do § 6b do brw: Modelos Locais (SLMs quantizados, ex: Qwen2.5-Coder vi
 
 ## 2 · o exemplo oficial, rodando
 
-**de onde veio o código:** [link do exemplo oficial no repositório do projeto]
+**de onde veio o código:** Trecho "Usage" do [README do faster-whisper](https://github.com/SYSTRAN/faster-whisper#faster-whisper), usando o áudio de teste `jfk.flac`.
 
-**o que eu mudei nele:** [só as escolhas que o README oferece, ex.: CPU, modelo menor; ou "nada"]
+**o que eu mudei nele:** Forcei as opções `device="cpu"` e `compute_type="int8"` oferecidas pelo projeto para rodar no notebook. Adicionei um *monkey patch* (remendo) no próprio código para contornar um erro de compatibilidade da biblioteca `av` com versões novas do Python, suprimindo o parâmetro `metadata_errors`.
 
-**o commit:** [link do commit no seu repositório]
+**o commit:** ac9cbe22a93249e28be580234272fc478e0a28be
 
 **o comando e a saída, colados como vieram:**
 
 ```text
-[cole]
+(venv) PS C:\codigos\tec> python transcrever.py
+Detected language 'en' with probability 0.945187
+[0.00s -> 8.00s]  And so, my fellow Americans, ask not what your country can do for you.
+[8.00s -> 11.00s]  Ask what you can do for your country.
 ```
 
 ## 3 · a alteração mínima
 
-**o commit:** [link do segundo commit]
+**o commit:** [adicione o link ou hash do segundo commit aqui]
 
-**a entrada:** antes, [o dado de exemplo do projeto]; agora, [o dado do meu problema, e de onde veio]
+**a entrada:** antes, o áudio de exemplo do projeto (discurso do JFK em inglês); agora, um áudio do meu problema (`explicacao.mp3` gravado por mim) simulando um aluno justificando o uso do padrão Singleton no banco de dados.
 
-**a saída:** antes, [o que o exemplo mostrava]; agora, [o que mostra da minha solução]
+**a saída:** antes, apenas a transcrição do áudio com marcações de tempo; agora, mostra a transcrição seguida de uma avaliação semântica gerada por um SLM local (Qwen2.5-Coder de 1.5B rodando via Ollama), que julga se a arquitetura explicada faz sentido.
 
 **o comando e a saída, colados como vieram:**
 
 ```text
-[cole]
+(.venv) PS C:\codigos\projeto_taia\va2\tec> python transcrever_02.py
+Ouvindo a justificativa do aluno...
+Transcrição: Eu isolei essa função de conexão com o banco de dados usando o padrão Singleton para evitar que a aplicação abra múltiplas conexões e estore a memória do servidor.
+
+Avaliando a compreensão da arquitetura...
+Veredito do Rastro Cognitivo: O aluno parece entender a ideia de utilizar o padrão Singleton para garantir que a aplicação abra apenas uma única conexão com o banco de dados, evitando abrições excessivas e consumo excessivo de memória do servidor.
 ```
 
 **onde a saída erra:** [preencha]
