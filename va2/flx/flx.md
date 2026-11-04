@@ -39,7 +39,7 @@ Uma extensão do VS Code 100% local. Ela instala, faz profiling de hardware (CPU
 
 ## 3 · a arquitetura: onde roda cada peça e para onde vão os dados
 
-**o diagrama, com as caixas de onde cada peça roda:** [cole o link do commit do arquitetura.md aqui]
+**o diagrama, com as caixas de onde cada peça roda:** https://github.com/Carlos-Eduardo-Ribeiro/projeto-taia/blob/main/va2/flx/arquitetura.md
 
 | dado pessoal | de quem é | onde fica | quem vê | por quanto tempo | quando é apagado |
 |:--|:--|:--|:--|:--|:--|
@@ -50,3 +50,26 @@ Uma extensão do VS Code 100% local. Ela instala, faz profiling de hardware (CPU
 **o que sai do aparelho de quem usa, e para onde:** O que sai são apenas as métricas obtidas através das análises da resposta do aluno (nível de entendimento, tempo, dificuldades mapeadas). Elas vão para o e-mail configurado do professor (que pode dar acesso a uma plataforma). O áudio da voz e o código-fonte do aluno nunca saem do PC.
 
 **o mínimo que a ideia precisa guardar:** Apenas os dados relativos ao desempenho e progresso de aprendizagem do aluno para compor o relatório.
+
+## 4 · o que mudou na ideia, sem IA
+
+No meu brw.md, eu ainda estava decidindo como avaliar a mudança do código. Desenhando o fluxograma hoje (Passo 1), percebi que extrair a AST e achar a mudança estrutural virou uma REGRA determinística (Passos 2 e 3) em vez de gastar processamento de IA. Além disso, cravei que a voz e o código não são guardados, morrem no PC, e só a "métrica" sai por e-mail para o professor.
+
+## 5 · auditoria cega
+
+> uma conversa nova, que não ajudou a fazer esta folha, julga cada item de verificação começando
+> de "não passa", abre os links de preço e tenta trocar cada IA por uma regra (prompt no passo 5 do
+> guia). você cola o veredito dela aqui, sem editar, e responde, sem IA, item por item.
+
+**o veredito da conversa nova** (a tabela item | passa ou não passa | trecho que prova | o que encontrei, colada como veio):
+
+| item | passa ou não passa | trecho que prova | o que encontrei (links abertos, regras tentadas) |
+|:--|:--|:--|:--|
+| 1 · fluxograma (IA, regra ou pessoa) | passa | § 1 e `arquitetura.md`: fluxo começa em `"1. Aluno salva/commita"` e vai até `"8. Exibe veredito..."` e `"9. Gera dashboard..."`. Passos IA (5 e 7) possuem justificativas claras. | Tentei criar regras para os passos IA. Regra de comparação de ondas sonoras para o Passo 5 não passa porque, como a folha aponta: `"Nem todo tom de voz é igual (sotaque, velocidade, timbre)"`. Regra de regex/palavras-chave para o Passo 7 não passa pois: `"Buscar palavras-chave fixas não prova entendimento"`. As justificativas sustentam a necessidade de IA. |
+| 2 · entradas, saídas, onde roda e custo | passa | § 2: A escala está clara (`"80 justificativas por mês, uns 30 segundos..."`). Custos detalham origem: `"tempo medido no tec"`, `"RAM estimada"`, `"estimado: openai.com/api/pricing"`. | Abri `github.com/openai/whisper#available-models-and-languages`: bate corretamente, o modelo `small` exige ~2 GB de RAM. Abri `openai.com/api/pricing`: a estimativa da alternativa em nuvem de ~US$ 0,25 está correta (US$ 0,006/min no Whisper). A justificativa de local vs nuvem não usa preço falso, baseia-se corretamente na necessidade de privacidade e uso offline. |
+| 3 · arquitetura, dados e privacidade | passa | § 3 e `arquitetura.md`: O diagrama tem as caixas separando o `"PC do Aluno"` e o `"Servidor"`. A tabela mapeia `"áudio"`, `"código-fonte"` e `"métricas"`, com destinações exatas (`"RAM"`, `"e-mail"`) e tempos de retenção (`"segundos"`, `"final do ciclo"`). | O texto explicita que `"o áudio da voz e o código-fonte do aluno nunca saem do PC"`, enviando só as métricas para o professor. A folha não cai na armadilha do exemplo raso de usar termos vazios como "os dados estão seguros". A retenção é condizente com a operação. |
+
+**a minha resposta, sem IA** (uma linha por item: o que mudei por causa da auditoria, e onde; ou por que discordo dela):
+1. Concordo com a auditoria, as justificativas para usar IA estão corretas e necessárias, logo, não precisei mudar o fluxograma;
+2. Concordo com a auditoria, os custos e a escala de uso foram acessadas e checadas, estão corretas;
+3. Concordo, o diagrama e a tabela de dados garantem a privacidade do estudante. Nenhum dado além dos necessários(as métricas) saem do pc.
