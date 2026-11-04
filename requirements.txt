@@ -1,13 +1,19 @@
-numpy==2.5.2
-pandas==3.0.5
-matplotlib==3.11.1
-streamlit==1.63.0
+--extra-index-url https://download.pytorch.org/whl/cpu
+
+# VA1 - Projeto 1 (MLP do Zero / Streamlit / Notebooks)
+numpy==2.5.4
+pandas==3.1.0
+matplotlib==3.11.2
+streamlit==1.66.1
 ipykernel>=7.0
 jupyter>=1.1
 
-# Projeto 2 (AE/Toll) — instaladas no .venv global
-# torch CPU: usar `pip install torch --index-url https://download.pytorch.org/whl/cpu`
+# VA1 - Projeto 2 (AE/Toll)
 torch==2.14.0+cpu
 scipy==1.18.1
 scikit-learn==1.9.1
 idx2numpy==1.2.3
+
+# VA2 - tec (Transcrição de Áudio Local)
+faster-whisper==1.2.1
+av==19.0.2

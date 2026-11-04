@@ -3,12 +3,20 @@ __pycache__/
 *.py[cod]
 *.egg-info/
 .venv/
+venv/
 *.ipynb_checkpoints/
-.ipynb_checkpoints/
 *.md
 
-# Dados processados (gerados) — em qualquer projeto
+# Dados brutos e processados (gerados) — em qualquer projeto
+**/data/raw/
 **/data/processed/
+data/raw/
+projeto_2/data/raw/
+projeto_1/data/raw/
+
+# IDE e repositórios auxiliares locais
+.idea/
+overleaf_repo/
 
 # Sistema
 .DS_Store
@@ -19,6 +27,3 @@ Thumbs.db
 
 # Skills de agente instaladas pelo Streamlit
 .agents/
-data/raw/
-projeto_2/data/raw/
-projeto_1/data/raw/
