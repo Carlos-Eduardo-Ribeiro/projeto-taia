@@ -3,19 +3,25 @@
 Este documento define como a IA deve **criar, compilar e publicar no Overleaf** o
 artigo científico de cada projeto, incluindo atualizações do artigo vigente.
 
-Token (usado como senha do git):
+## Credenciais (armazenadas em `.env`)
 
-`olp_0LLg2W8q8S4Hu8OiEdrbFRVV7mFZsw14lt28`
+As credenciais de acesso ao Overleaf ficam isoladas no arquivo `.env` na raiz do
+repositório (ignorado pelo `.gitignore`):
 
-Clone do projeto (usuário `git`, senha = token acima):
+- `OVERLEAF_GIT_TOKEN`: token de autenticação Git do Overleaf (usado como senha do usuário `git`).
+- `OVERLEAF_PROJECT_ID`: identificador do projeto no Overleaf.
+- `OVERLEAF_REPO_URL`: URL do repositório Git do Overleaf.
+
+Clone do projeto (carregando as variáveis do `.env` local):
 
 ```bash
-git clone https://git@git.overleaf.com/6a920bb7b8e36eb1e2f1804c
+set -a && source .env && set +a
+git clone "$OVERLEAF_REPO_URL" overleaf_repo
 ```
 
-**Aviso de segurança:** o token fica gravado nos remotes do clone local
-(`git remote -v` mostra a URL com senha). Não commitar/pushar esse token em nenhum
-repositório público; nunca commitá-lo no repositório do GitHub.
+**Aviso de segurança:** nunca gravar tokens ou credenciais em arquivos versionados;
+manter todas as chaves exclusivamente no `.env` local (bloqueado pelo `.gitignore`) e
+nunca commitar o arquivo `.env` ou o diretório `overleaf_repo/` no GitHub.
 
 ## Estrutura do repositório Overleaf
 
