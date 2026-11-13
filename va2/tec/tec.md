@@ -51,6 +51,8 @@ Transcrição: Eu isolei essa função de conexão com o banco de dados usando o
 
 Avaliando a compreensão da arquitetura...
 Veredito do Rastro Cognitivo: O aluno parece entender a ideia de utilizar o padrão Singleton para garantir que a aplicação abra apenas uma única conexão com o banco de dados, evitando abrições excessivas e consumo excessivo de memória do servidor.
+
+Tempo de execução: 13.92s (Whisper: 7.08s | Qwen: 6.84s)
 ```
 
 **onde a saída erra:** Na transcrição, o Whisper (tamanho small) errou a fonética e escreveu "estore" em vez de "estoure". Na avaliação, o Qwen de 1.5B acertou o mérito técnico da resposta, mas inventou a palavra "abrições" em vez de "aberturas", mostrando a limitação de um modelo tão pequeno ao gerar texto natural em português.
