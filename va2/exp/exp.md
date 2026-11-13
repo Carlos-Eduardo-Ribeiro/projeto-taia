@@ -119,7 +119,7 @@
 
 ### 3.4 · o piloto: o que rodei, o que deu, o que mudou no desenho (E2)
 
-**o script e o commit:** [coloque o link do commit do piloto_e2.py aqui]
+**o script e o commit:** https://github.com/Carlos-Eduardo-Ribeiro/projeto-taia/commit/30b51835b30b82683be50d73c2b6823cff38750a
 
 **a tabela, colada como saiu:**
 | Condição | T1 | T2 | T3 | T4 | T5 | Total de Erros | Redução T1->T5 |
@@ -150,6 +150,6 @@ Até o presado momento, não foi alterado nada na ideia, pois com base no desemp
 | 3. dados, participantes e ética | **passa** | § 2.3 e § 3.3. | A quantidade de participantes (30 áudios no E1; 6 a 8 no E2) está justificada e é viável. A separação entre áudios de ajuste e teste está clara. O TCLE foi estruturado conforme LGPD e CNS 510/2016 e os dados ficam apenas na RAM, sendo apagados logo em seguida. Nenhuma persona de IA substituiu o humano na avaliação pedagógica (E2). |
 
 **a minha resposta, sem IA** (uma linha por item: o que mudei por causa da auditoria, e onde; ou por que discordo dela):
-1. [Escreva você: ex - Concordo. As hipóteses estão travadas e documentadas no repositório.]
-2. [Escreva você: ex - Concordo com o alerta. Já registrei no passo 3 que vou alterar o Passo 6 do fluxograma para amarrar o prompt com rigor na leitura da AST.]
-3. [Escreva você: ex - Concordo, a ética e privacidade são os pilares dessa extensão local.]
+1. Concordo com a auditoria, bem exuta, tive algumas duvidas ao decorrer da execução, acerca de é humano que tem de fazer ou não, mas já foram sanadas. As hipóteses, foram testadas e aprovadas e ate com bom desempenho.
+2. Concordo com o alerta. Já registrei no passo 3 que vou alterar o Passo 6 do fluxograma para amarrar o prompt com rigor as regras adequadas na leitura da AST.
+3. Concordo, a ética e privacidade são os pilares dessa extensão local. Assim que obter aporvaçaõ, partirei para os testes reais.
