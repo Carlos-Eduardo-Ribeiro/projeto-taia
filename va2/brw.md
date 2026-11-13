@@ -58,7 +58,7 @@ cada célula: **nome** · frase de até 20 palavras (quem usa, o que faz).
 
 onde discordei da IA, e por quê: Concordei com o mapeamento, mas notei que a viabilidade de ferramentas puramente de voz ou puramente locais só se torna alta se a arquitetura for adaptável ao PC do usuário.
 
-**minha ideia escolhida:** **Ctrl+V Falado (Extensão VS Code)** · Extensão lê diffs e AST, pausando para o aluno explicar decisões arquiteturais complexas por áudio.
+**minha ideia escolhida:** **Ctrl+V Falado (Extensão VS Code)** · Extensão lê diffs e AST, emitindo um alerta não-intrusivo para o aluno justificar decisões arquiteturais complexas por áudio.
 
 **por que ela, sem IA, em até 3 linhas:** 
 Escolhi pois abandona o foco policial de "caçar IA" e foca na comprovação cognitiva. Ao integrar isso direto no VS Code, o aluno consolida os fundamentos da programação de forma dinâmica, em casa ou na faculdade, reduzindo a dependência e melhorando a qualidade do código.
