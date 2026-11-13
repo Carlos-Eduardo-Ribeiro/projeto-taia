@@ -6,7 +6,7 @@
 ## 0 · a minha ideia completa
 
 **Rastro Cognitivo (Edge AI Edition)**
-Uma extensão do VS Code 100% local. Ela instala, faz profiling de hardware (CPU/RAM/GPU) e baixa o Qwen2.5-Coder (GGUF/llama.cpp) e o Whisper. Se o PC for fraco, prioriza o local com um modelo menor. A extensão lê diffs do Git e a AST, detectando mudanças estruturais e exigindo que o aluno justifique a arquitetura em áudio. O Qwen usa uma rubrica semântica para avaliar a compreensão (sem "caçar" IA). O aluno ganha um relatório de evolução de sua base técnica, e o professor recebe um dashboard consolidado das lacunas da turma.
+Uma extensão do VS Code 100% local. Ela instala, faz profiling de hardware (CPU/RAM/GPU) e baixa o Qwen2.5-Coder (GGUF/llama.cpp) e o Whisper. Se o PC for fraco, prioriza o local com um modelo menor. A extensão lê diffs do Git e a AST, detectando mudanças estruturais e emitindo um alerta não-intrusivo para o aluno justificar a arquitetura em áudio. O Qwen usa uma rubrica semântica para avaliar a compreensão (sem "caçar" IA). O aluno ganha um relatório de evolução de sua base técnica, e o professor recebe um dashboard consolidado das lacunas e dos alertas ignorados da turma.
 
 ## 1 · a ficha da ideia
 
@@ -22,13 +22,13 @@ ficha: **C**enário · **U**suário · **P**roblema · **T**ecnologia, cada um *
 | ferramenta | o que faz | no que é bom | onde falha | C U P T |
 |:--|:--|:--|:--|:-:|
 | **[Viva](https://vivaproof.com/)** | Aceita código final (ex: notebook.ipynb) e faz uma conversa de voz avaliativa com IA. | Avalia o projeto final com voz, confirmando a identidade e gerando relatório. | Ocorre só no fim do projeto; não atua na IDE durante a construção para prevenir a falha cognitiva. | ≈ = = ≈ |
-| **[Codswallop](https://marketplace.visualstudio.com/items?itemName=GideonBear.codswallop)** | Extensão de VS Code que dispara quiz (Claude) ao detectar colagem de código ou alta complexidade. | Atua na hora do atrito (Ctrl+V) direto na IDE. | O quiz é em texto, permitindo que o aluno fraude facilmente copiando a pergunta e jogando na IA. | = = = ≈ |
+| **[Codswallop](https://marketplace.visualstudio.com/items?itemName=GideonBear.codswallop)** | Extensão de VS Code que dispara quiz (Claude) ao detectar colagem de código ou alta complexidade. | Atua na hora do atrito (Ctrl+V) direto na IDE. | Trava a tela com um quiz em texto, interrompendo o fluxo e permitindo fraude fácil ao copiar a pergunta e jogar na IA. | = = = ≈ |
 | **[comprehension-gate](https://github.com/hasura/comprehension-gate)** | GitHub Action que faz perguntas de texto sobre o diff do PR antes do merge. | Força a justificativa estrutural de um código antes de aceitá-lo. | O aluno escreve a resposta, o que não prova cognição real, pois a justificativa pode ser gerada. | ≈ = = ≠ |
-| [Socratic IDE](https://github.com/Socratic-IDE) | Extensão que usa Ollama para fazer perguntas socráticas sobre o código. | Roda localmente sem custo de API de nuvem. | Age passivamente como tutor; não trava o fluxo exigindo prova estrutural antes do commit/salvamento. | = = ≈ ≈ |
+| [Socratic IDE](https://github.com/Socratic-IDE) | Extensão que usa Ollama para fazer perguntas socráticas sobre o código. | Roda localmente sem custo de API de nuvem. | Age apenas como tutor de dúvidas; não audita mudanças na AST nem envia métricas de evasão/compreensão ao professor. | = = ≈ ≈ |
 | [Codefinds](https://marketplace.visualstudio.com/items?itemName=kabirmirza.codefinds) | Mede intervalos de digitação para classificar código como colado. | Mede perfeitamente o atrito mecânico localmente. | Foca na mecânica do teclado; o aluno pode burlar reescrevendo à mão sem entender a lógica. | = = ≈ ≈ |
 | [DevForge Architect](https://marketplace.visualstudio.com/items?itemName=devforge.devforge-architect) | Extensão que dispara questionários ao detectar geração massiva de código. | Lê a arquitetura (AST) para barrar mudanças não justificadas. | Voltada para nuvem corporativa e devs, ignorando a dinâmica de avaliação de alunos; uso por texto. | ≈ ≈ ≈ ≈ |
 | [VisualDebugger](https://github.com/Jason-Tan1/VisualDebugger) | Gera quizzes interativos e reproduz em voz as explicações sobre erros. | Estimula o canal auditivo no aprendizado. | Foca em resolver erros pontuais entregando a resposta mastigada, não em auditar código funcional. | = = ≈ ≈ |
-| [CodeGrade AI](https://www.codegrade.com/solutions/ai-assistant) | Ambiente web educativo que responde dúvidas com base em regras do professor. | Centraliza logs contextuais para o educador. | É passivo, focado em dúvidas, e não exige ativamente a prova de autoria do aluno. | ≈ = ≠ ≠ |
+| [CodeGrade AI](https://www.codegrade.com/solutions/ai-assistant) | Ambiente web educativo que responde dúvidas com base em regras do professor. | Centraliza logs contextuais para o educador. | É passivo, focado em dúvidas, e não solicita ativamente a justificativa de autoria do aluno na IDE. | ≈ = ≠ ≠ |
 | [Codequiry](https://codequiry.com/detect-ai-written-code) | Plataforma web anti-plágio baseada em estatística de tokens. | Precisão técnica em flagrar código de IA. | Abordagem policial e punitiva que ocorre pós-entrega, sem ensinar ou gerar evolução no aluno. | ≠ = ≠ ≠ |
 | [Code Review AI](https://marketplace.visualstudio.com/items?itemName=NitishJT.code-review-ai) | Extensão de VS Code que revisa e dá dicas automáticas. | Acelera a correção de erros consultando o Git. | Dá a resposta pronta, aprofundando a alienação técnica e o problema do aluno não pensar. | ≈ ≠ ≠ ≈ |
 
@@ -50,10 +50,10 @@ ficha: **C**enário · **U**suário · **P**roblema · **T**ecnologia, cada um *
 ## 4 · os 3 + 3 mais próximos
 
 - **Viva:** Faz a auditoria verbal sobre código entregue; escolhido porque prova que o exame oral orquestrado por IA é viável e já existe como produto.
-- **Codswallop:** É o concorrente mais direto: atua no atrito (Ctrl+V) dentro da IDE para auditar se o aluno entende o que colou. Falha usando quizzes de texto.
-- **comprehension-gate:** Intercepta diffs estruturais forçando justificativa do autor. Escolhido porque age como uma catraca (gatekeeper), alinhado ao objetivo da minha ideia, mas falha no uso de texto copiável.
+- **Codswallop:** É o concorrente mais direto: atua no atrito (Ctrl+V) dentro da IDE para auditar se o aluno entende o que colou. Falha ao travar a tela com quizzes de texto copiáveis.
+- **comprehension-gate:** Intercepta diffs estruturais pedindo justificativa do autor. Escolhido por olhar para mudanças estruturais de código, alinhado ao objetivo da minha ideia, mas falha por bloquear o fluxo no PR usando texto copiável.
 - **Using GitHub Copilot (Wermelinger):** O estudo basal sobre as implicações de novatos resolvendo problemas dentro da própria IDE. Escolhido por enquadrar perfeitamente a dor principal da minha ficha de "Cenário".
-- **“It's Weird That it Knows What I Want” (Prather):** Documenta a confiança cega do aluno (viés de automação) em sugestões generativas, o "Problema" central que a obrigatoriedade da voz visa interromper.
+- **“It's Weird That it Knows What I Want” (Prather):** Documenta a confiança cega do aluno (viés de automação) em sugestões generativas, o "Problema" central que o alerta reflexivo por voz visa mitigar.
 - **Natural Language-Focused SE (Eghbali):** Prova técnica em veículo de excelência (FSE) de que cruzar estruturas complexas de código (AST) com análise semântica em IA tem embasamento científico e funciona.
 
 ## 5 · a matriz
@@ -80,9 +80,9 @@ ficha: **C**enário · **U**suário · **P**roblema · **T**ecnologia, cada um *
 
 ## 6 · a contribuição
 
-**a frase:** O Rastro Cognitivo intercepta mudanças na estrutura do código diretamente na IDE e cobra explicação por voz rodando integralmente de forma local; por isso atua exclusivamente na auditoria e metrificação impedindo que o estudante fraude a justificativa com texto de IA e dispensa dependência de nuvem paga, o que ferramentas existentes de auditoria de código não conseguem fazer simultaneamente.
+**a frase:** O Rastro Cognitivo detecta mudanças na estrutura do código diretamente na IDE e emite um alerta não-intrusivo solicitando explicação por voz rodando integralmente de forma local; por isso atua exclusivamente na auditoria e metrificação (incluindo alertas ignorados para o professor), impedindo que o estudante fraude a justificativa com texto de IA e dispensando dependência de nuvem paga, o que ferramentas existentes de auditoria de código não conseguem fazer simultaneamente.
 
-**o trabalho mais próximo, e por que ele não chega lá:** O Codswallop atua como auditor exatamente na IDE durante ações críticas (Ctrl+V), mas não chega lá porque suas avaliações geram quizzes de múltipla escolha baseados na nuvem, permitindo que o aluno burle a verificação copiando as respostas de IAs externas.
+**o trabalho mais próximo, e por que ele não chega lá:** O Codswallop atua como auditor exatamente na IDE durante ações críticas (Ctrl+V), mas não chega lá porque trava a tela com quizzes de múltipla escolha em texto baseados na nuvem (permitindo que o aluno burle a verificação copiando as respostas de IAs externas), enquanto o Rastro Cognitivo não trava a IDE: convida à reflexão por voz e envia a métrica de evasão (se o aluno ignorou o alerta) para o professor.
 
 ## 7 · tentei derrubar
 
@@ -92,7 +92,7 @@ o que eu mudei: As promessas não comprováveis ("garantindo aprendizado") caír
 
 ## 8 · resumo, sem IA
 
-Soluções como Codswallop disparam questionários na IDE ao detectar muito código gerado, mas usam texto, facilitando a fraude do aluno. Ferramentas como o Viva aplicam exames orais anti-fraude, mas rodam via nuvem apenas no final da entrega (punitivas). O Rastro Cognitivo usa LLMs locais e a AST para juntar a obrigatoriedade da voz preventiva dentro do editor de código, auditando o raciocínio sem custos de nuvem ou quebra de privacidade em laboratórios ou casa.
+Soluções como Codswallop travam a tela na IDE com questionários ao detectar muito código gerado, mas usam texto, facilitando a fraude do aluno. Ferramentas como o Viva aplicam exames orais anti-fraude, mas rodam via nuvem apenas no final da entrega (punitivas). O Rastro Cognitivo usa LLMs locais e a AST para emitir um alerta não-intrusivo por voz dentro do editor de código, enviando métricas de compreensão e de evasão ao professor sem custos de nuvem ou quebra de privacidade em laboratórios ou casa.
 
 ## 9 · auditoria cega
 

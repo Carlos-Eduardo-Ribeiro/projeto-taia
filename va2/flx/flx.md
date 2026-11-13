@@ -6,7 +6,7 @@
 ## 0 · a minha ideia e o que eu medi
 
 **Rastro Cognitivo (Edge AI Edition)**
-Uma extensão do VS Code 100% local. Ela instala, faz profiling de hardware (CPU/RAM/GPU) e baixa o Qwen2.5-Coder (GGUF/llama.cpp) e o Whisper. Se o PC for fraco, prioriza o local com um modelo menor. A extensão lê diffs do Git e a AST, detectando mudanças estruturais e exigindo que o aluno justifique a arquitetura em áudio. O Qwen usa uma rubrica semântica para avaliar a compreensão (sem "caçar" IA). O aluno ganha um relatório de evolução de sua base técnica, e o professor recebe um dashboard consolidado das lacunas da turma.
+Uma extensão do VS Code 100% local. Ela instala, faz profiling de hardware (CPU/RAM/GPU) e baixa o Qwen2.5-Coder (GGUF/llama.cpp) e o Whisper. Se o PC for fraco, prioriza o local com um modelo menor. A extensão lê diffs do Git e a AST, detectando mudanças estruturais e emitindo um alerta não-intrusivo para o aluno justificar a arquitetura em áudio. O Qwen usa uma rubrica semântica para avaliar a compreensão (sem "caçar" IA). O aluno ganha um relatório de evolução de sua base técnica, e o professor recebe um dashboard consolidado das lacunas e dos alertas ignorados da turma.
 
 **o que eu medi no tec:** O modelo rodou local na CPU em uma máquina de 8GB de RAM, levando cerca de 5 a 20 segundos por resposta. Na transcrição, o Whisper small errou a fonética ("estore" em vez de "estoure"). Na avaliação semântica, o Qwen 1.5B (via Ollama) acertou o mérito técnico, mas inventou a palavra "abrições" em vez de "aberturas".
 
@@ -19,12 +19,12 @@ Uma extensão do VS Code 100% local. Ela instala, faz profiling de hardware (CPU
 | 1 | Aluno salva o arquivo ou faz o commit com uma alteração no código. | pessoa | |
 | 2 | A extensão lê o diff do Git e extrai a Árvore de Sintaxe Abstrata (AST) do código. | regra | |
 | 3 | Filtro de mudança vital: compara a AST para ver se há mudança de arquitetura (se não houver, o fluxo segue normal). | regra | |
-| 4 | Se houver mudança vital, a IDE pausa e abre o microfone para o aluno justificar a escolha. | pessoa | |
+| 4 | Se houver mudança vital, a IDE emite um alerta solicitando o áudio. O aluno pode gravar ou ignorar. | pessoa | |
 | 5 | O áudio é transcrito para texto (Whisper local). | IA | Nem todo tom de voz é igual (sotaque, velocidade, timbre), o que geraria palavras incorretas se usássemos uma comparação exata de ondas sonoras. |
 | 6 | A extensão empacota a transcrição, o trecho da AST e a rubrica do professor num prompt. | regra | |
 | 7 | O modelo local (Qwen) avalia se a justificativa prova que o aluno entendeu aquela estrutura. | IA | Buscar palavras-chave fixas não prova entendimento, pois elas podem ser facilmente copiadas ou decoradas. O sistema precisa interpretar a semântica de todo o contexto. |
-| 8 | A extensão exibe o veredito na IDE e atualiza o relatório local de evolução do aluno. | regra | |
-| 9 | O dashboard consolidado das lacunas é gerado para o professor. | regra | |
+| 8 | A extensão exibe o veredito na IDE e atualiza o relatório local de evolução do aluno (contabilizando também alertas ignorados). | regra | |
+| 9 | O dashboard consolidado das lacunas e de alertas ignorados é gerado para o professor. | regra | |
 
 ## 2 · as peças: o que entra, o que sai, onde roda e quanto custa
 
@@ -45,9 +45,9 @@ Uma extensão do VS Code 100% local. Ela instala, faz profiling de hardware (CPU
 |:--|:--|:--|:--|:--|:--|
 | áudio da justificativa (voz) | do aluno | memória RAM do PC do aluno | ninguém (só o Whisper processa) | segundos | imediatamente após a transcrição |
 | código-fonte (diff/AST) | do aluno | PC do aluno | o modelo local (Qwen) | segundos (durante o prompt) | apagado da extensão logo após gerar o veredito |
-| métricas de desempenho (lacunas, entendimento, tempo) | do aluno | arquivo local e e-mail do professor | o aluno e o professor | até o fim da disciplina/semestre | no final do ciclo letivo |
+| métricas de desempenho (lacunas, entendimento, tempo, alertas ignorados) | do aluno | arquivo local e e-mail do professor | o aluno e o professor | até o fim da disciplina/semestre | no final do ciclo letivo |
 
-**o que sai do aparelho de quem usa, e para onde:** O que sai são apenas as métricas obtidas através das análises da resposta do aluno (nível de entendimento, tempo, dificuldades mapeadas). Elas vão para o e-mail configurado do professor (que pode dar acesso a uma plataforma). O áudio da voz e o código-fonte do aluno nunca saem do PC.
+**o que sai do aparelho de quem usa, e para onde:** O que sai são apenas as métricas obtidas através das análises da resposta do aluno (nível de entendimento, tempo, dificuldades mapeadas e alertas ignorados). Elas vão para o e-mail configurado do professor (que pode dar acesso a uma plataforma). O áudio da voz e o código-fonte do aluno nunca saem do PC.
 
 **o mínimo que a ideia precisa guardar:** Apenas os dados relativos ao desempenho e progresso de aprendizagem do aluno para compor o relatório.
 
