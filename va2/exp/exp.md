@@ -100,3 +100,56 @@
 | o que separa treino, ajuste e teste | Não há treino de máquina aqui. Separa-se apenas a lista de tarefas (tarefas A e B têm a mesma dificuldade). |
 | consentimento e comitê de ética | O mesmo TCLE do E1, detalhando os riscos de frustração com a ferramenta e a garantia de que a participação não afeta a nota final na disciplina. |
 | dados pessoais: onde ficam e quando somem | Apenas as métricas pseudonimizadas vão para o professor. Códigos e áudios não saem da máquina. |
+
+### 2.4 · o piloto: o que rodei, o que deu, o que mudou no desenho
+
+**o script e o commit:** https://github.com/Carlos-Eduardo-Ribeiro/projeto-taia/commit/e951529c9383391eb77f9630751bbead5bb4417b
+
+**a tabela, colada como saiu:**
+| ID | Condição | Tempo (s) | Gabarito | Qwen | Resultado |
+|:---|:---|---:|:---|:---|:---|
+| T1 | Normal | 6.81 | Passar | Passar | ✅ Acerto |
+| T2 | Whisper Ruim | 2.87 | Passar | Passar | ✅ Acerto |
+| T3 | Normal | 2.45 | Barrar | Barrar | ✅ Acerto |
+| T4 | Sem AST | 2.74 | Passar | Passar | ✅ Acerto |
+
+**o que o piloto prova, e o que ele não prova:** O piloto atesta o funcionamento base da ideia, se utilizado de poucos exemplos. Para todos os testes foram respeitados o limite máximo de 30 sec, em realidade, o tempo de execução não passou de 7 sec, possibilitando a geração de novos limites de desempenho melhorado. O testes foram um sucesso, ele barrou e passou as variações de teste com sucesso, para o teste normal, ele funcionou adequandamente, para o teste com falha de detcção correta do wisper, ele ainda sim entendeu o contexto e passo, para o teste normal mais tendo o usuário falado bobagem, ele o barrou, já o teste 4, cabe-se um adendo, mesmo sem ast ele passou, mas porque ? porque não tem contexto o suficente ? porque não a regars claras que exigem a presença de todos os dados ? Cabe-se mais testes para uma respota mais eficais. 
+
+**o que mudou no desenho por causa dele:** Vou ter de melhorar o prompt, principamente nas regras, estipulando que não seja aceita execuções sem ter todo o contexto(ast + transcricao Whisper + regras claras)
+
+### 3.4 · o piloto: o que rodei, o que deu, o que mudou no desenho (E2)
+
+**o script e o commit:** [coloque o link do commit do piloto_e2.py aqui]
+
+**a tabela, colada como saiu:**
+| Condição | T1 | T2 | T3 | T4 | T5 | Total de Erros | Redução T1->T5 |
+|:---|---:|---:|---:|---:|---:|---:|---:|
+| A: Sem a Extensão | 4 | 4 | 3 | 4 | 4 | 19 | 0 erros |
+| B: Com a Extensão | 4 | 3 | 2 | 1 | 0 | 10 | 4 erros |
+
+**o que o piloto prova, e o que ele não prova:** Prova que o protocolo de métricas faz sentido e a matemática do experimento real fecha: capturar os erros tarefa a tarefa permite medir a "Redução T1->T5", que é exatamente o que a hipótese pede. Ele não prova ABSOLUTAMENTE NADA sobre o comportamento de estudantes reais ou se a ideia funciona; os números foram gerados por regras estáticas simulando alunos, apenas para validar a montagem da tabela antes do comitê de ética liberar a pesquisa com humanos.
+
+**o que mudou no desenho por causa dele:** Percebi que olhar o "Total de Erros" não é a melhor métrica para avaliar aprendizado. A ferramenta deve ser julgada pela coluna "Redução T1->T5". O desenho do experimento final focará em comparar se a inclinação de queda dos erros da condição B é pelo menos 30% maior que a da condição A.
+
+## 3 · o que mudou na ideia, sem IA
+
+Até o presado momento, não foi alterado nada na ideia, pois com base no desempenho obtitdo, abre-se a possibilidade (já prevista pois a extensão é modular a depender do hardware) de se usar modelos mais robustos e com isso obter mais desempenho em tempo habio. 
+
+## 4 · auditoria cega
+
+> uma conversa nova, que não ajudou a fazer esta folha, julga cada item de verificação começando
+> de "não passa", tenta derrubar cada hipótese e confere cada referência (prompt no passo 6 do
+> guia). você cola o veredito dela aqui, sem editar, e responde, sem IA, item por item.
+
+**o veredito da conversa nova** (a tabela item | passa ou não passa | trecho que prova | o que encontrei, colada como veio):
+
+| item | passa ou não passa | trecho que prova | o que encontrei |
+|:--|:--|:--|:--|
+| 1. hipótese, linha de base e número que derruba, decididos antes | **passa** | § 2.1 e § 3.1 (os limiares e commits). | O artigo de Cong (BEA 2026) e Edwards (SIGCSE 2004) sustentam as métricas. As hipóteses têm risco de falhar (10% de falso negativo; 30 segundos). O competidor do E1 (OpenAI) e E2 (Codswallop) estão corretos. O limiar foi commitado antes do piloto. |
+| 2. métricas e ablação, rodadas num piloto | **passa (com alerta)** | § 2.2 (métricas) e § 2.4 (tabela do piloto). | A tabela do piloto saiu do script com o gabarito correto. Porém, a ablação "Sem AST" (T4) resultou em "Passar", o que contraria o esperado em § 2.2 ("espero ver mais falsos positivos"). Isso prova que o LLM atual está avaliando só o texto e ignorando a arquitetura. O item passa porque o autor detectou a falha no texto de análise (§ 2.4) e assumiu que precisa mudar o prompt. |
+| 3. dados, participantes e ética | **passa** | § 2.3 e § 3.3. | A quantidade de participantes (30 áudios no E1; 6 a 8 no E2) está justificada e é viável. A separação entre áudios de ajuste e teste está clara. O TCLE foi estruturado conforme LGPD e CNS 510/2016 e os dados ficam apenas na RAM, sendo apagados logo em seguida. Nenhuma persona de IA substituiu o humano na avaliação pedagógica (E2). |
+
+**a minha resposta, sem IA** (uma linha por item: o que mudei por causa da auditoria, e onde; ou por que discordo dela):
+1. [Escreva você: ex - Concordo. As hipóteses estão travadas e documentadas no repositório.]
+2. [Escreva você: ex - Concordo com o alerta. Já registrei no passo 3 que vou alterar o Passo 6 do fluxograma para amarrar o prompt com rigor na leitura da AST.]
+3. [Escreva você: ex - Concordo, a ética e privacidade são os pilares dessa extensão local.]
