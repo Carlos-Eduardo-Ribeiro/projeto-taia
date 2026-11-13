@@ -46,7 +46,7 @@ cada célula: **nome** · frase de até 20 palavras (quem usa, o que faz).
 | | 1 · IDE / VS Code | 2 · Histórico Git (Diffs) | 3 · Avaliação (Review) |
 |:--|:--|:--|:--|
 | **A · Modelos Locais (SLM)** | **IDE Investigativa** · modelo local avalia AST do código e questiona decisões complexas. | **Commit Explicado** · modelo avalia o diff do commit local e exige justificativa em texto. | **Rubrica Automática** · SLM avalia qualidade do código baseado nos padrões do laboratório. |
-| **B · Voz (Whisper)** | **Ctrl+V Falado** · ao colar código genérico, IDE obriga aluno a explicar a lógica por voz. | **Push por Voz** · para autorizar envio ao Git, aluno explica alteração em áudio transcrito. | **Review em Áudio** · professor escuta resumo transcrito das decisões arquiteturais do aluno. |
+| **B · Voz (Whisper)** | **Ctrl+V Falado** · ao colar código genérico, IDE emite alerta para o aluno explicar a lógica por voz. | **Push por Voz** · para autorizar envio ao Git, aluno explica alteração em áudio transcrito. | **Review em Áudio** · professor escuta resumo transcrito das decisões arquiteturais do aluno. |
 | **C · Orquestração** | **Agente AST** · lê a árvore estrutural do código para isolar apenas o que mudou. | **Filtro de Diffs** · cruza histórico Git com AST para não questionar arquivos de configuração. | **Relatório Consolidado** · gera métricas de evolução e dependência de IA com base nas respostas. |
 
 **as 9 no mapa impacto × viabilidade:**
@@ -86,15 +86,15 @@ Escolhi pois abandona o foco policial de "caçar IA" e foca na comprovação cog
 **o que eu descarto, e por quê:** Descarto restrições punitivas (batalhas contra o relógio ou travar a tela). O foco precisa ser educacional e adaptável, rodando de forma soberana (localmente) e funcionando bem tanto nos laboratórios da faculdade quanto nos estudos da madrugada em casa.
 
 **minha ideia completa:** **Rastro Cognitivo (Edge AI Edition)**
-Uma extensão do VS Code 100% local. Ela instala, faz profiling de hardware (CPU/RAM/GPU) e baixa o Qwen2.5-Coder (GGUF/llama.cpp) e o Whisper. Se o PC for fraco, prioriza o local com um modelo menor; se não der, libera uso de API Key na nuvem. A extensão lê diffs do Git e a AST, detectando mudanças estruturais e exigindo que o aluno justifique a arquitetura em áudio. O Qwen usa uma rubrica semântica para avaliar a compreensão (sem "caçar" IA). O aluno ganha um relatório de evolução de sua base técnica, e o professor recebe um dashboard consolidado das lacunas da turma.
+Uma extensão do VS Code 100% local. Ela instala, faz profiling de hardware (CPU/RAM/GPU) e baixa o Qwen2.5-Coder (GGUF/llama.cpp) e o Whisper. Se o PC for fraco, prioriza o local com um modelo menor; se não der, libera uso de API Key na nuvem. A extensão lê diffs do Git e a AST, detectando mudanças estruturais e emitindo um alerta não-intrusivo para o aluno justificar a arquitetura em áudio. O Qwen usa uma rubrica semântica para avaliar a compreensão (sem "caçar" IA). O aluno ganha um relatório de evolução de sua base técnica, e o professor recebe um dashboard consolidado das lacunas e dos alertas ignorados da turma.
 
 ## 6 · refinamento
 
-**a · e se todo mundo usasse?** Em 5 anos, formaríamos programadores com base sólida, capazes de ler, auditar e orquestrar código gerado por IA com maestria, porque foram forçados a interpretar a lógica ao longo de todo o curso. Estudantes (na faculdade e em casa) usariam a extensão ativamente pelo desejo egoísta de descobrir exatamente onde estão falhando nos fundamentos, mapear sua evolução técnica em métricas claras e conseguir trilhas de estudo personalizadas baseadas em seus relatórios.
+**a · e se todo mundo usasse?** Em 5 anos, formaríamos programadores com base sólida, capazes de ler, auditar e orquestrar código gerado por IA com maestria, porque foram estimulados a interpretar a lógica ao longo de todo o curso. Estudantes (na faculdade e em casa) usariam a extensão ativamente pelo desejo egoísta de descobrir exatamente onde estão falhando nos fundamentos, mapear sua evolução técnica em métricas claras e conseguir trilhas de estudo personalizadas baseadas em seus relatórios.
 
 **b · a IA que não pode faltar.** técnica: Modelos Locais (*SLMs* quantizados, ex: Qwen2.5-Coder) e Transformers de Voz (*Whisper*). · aula da disciplina: 07 - modelos locais / SLMs e 11 - transformers.
 
-por que sem ela não roda: Sem SLMs locais executando llama.cpp, a extensão dependeria de servidores caros, ferindo a privacidade do aluno e inviabilizando uso sem internet ou em universidades sem verba. O Qwen-Coder é vital para ler o contexto do Git/AST e aplicar a rubrica inteligentemente. O Whisper garante o fluxo por fala; sem ele, a exigência de digitar justificativas longas transformaria a extensão numa burocracia insustentável.
+por que sem ela não roda: Sem SLMs locais executando llama.cpp, a extensão dependeria de servidores caros, ferindo a privacidade do aluno e inviabilizando uso sem internet ou em universidades sem verba. O Qwen-Coder é vital para ler o contexto do Git/AST e aplicar a rubrica inteligentemente. O Whisper garante o fluxo por fala; sem ele, o pedido de digitar justificativas longas transformaria a extensão numa burocracia insustentável.
 
 **c · o cético e as saídas**
 
